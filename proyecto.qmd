@@ -1,0 +1,11 @@
+---
+title: "Efecto de la luz UV en la anhidrobiosis de los rotiferos del genero Adineta"
+author: "Laura B"
+format: html
+editor: visual
+bibliography: references.bib
+---
+
+## Introducción 
+
+La radiación UV puede actuar directamente sobre la anhidrobiosis de los rotiferos bdelloideos del genero Adineta [@turvey1990]
