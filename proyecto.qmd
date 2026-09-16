@@ -1,7 +1,7 @@
 ---
 title: "Efecto de la luz UV en la anhidrobiosis de los rotiferos del genero Adineta"
 author: "Laura B"
-format: html
+format: pdf
 editor: visual
 bibliography: references.bib
 ---
@@ -11,3 +11,11 @@ bibliography: references.bib
 La radiación UV puede actuar directamente sobre la anhidrobiosis de los rotiferos bdelloideos del genero Adineta [@turvey1990]
 
 Las ranas son activas al calor
+
+Metodologia
+
+| Variable         | Unidad de medida | Tipo de variable |
+|------------------|------------------|------------------|
+| Especie de rana  |                  | Categorica       |
+| Temperatura      | Grados celsius   | Generica         |
+|                  |                  |                  |
