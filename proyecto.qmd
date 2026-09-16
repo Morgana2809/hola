@@ -1,7 +1,7 @@
 ---
 title: "Efecto de la luz UV en la anhidrobiosis de los rotiferos del genero Adineta"
 author: "Laura B"
-format: pdf
+format: html
 editor: visual
 bibliography: references.bib
 ---
