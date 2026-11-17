@@ -111,12 +111,4 @@ supervivencia_philodina |>
 
 En el diagrama de cajas, la desecación muestra la mediana más baja y la mayor dispersión de datos por debajo de cero, confirmando que es el tratamiento que más reduce la supervivencia según su duración. Por el contrario, el intercepto y la interacción Desecación \* UV mantienen medianas positivas, aunque esta última presenta un valor atípico extremo cercano a -11 que refleja la mortalidad severa al combinar sequía prolongada con alta radiación. Finalmente, los tratamientos relacionados con la pigmentación se mantienen cercanos a 0 con poca dispersión, mientras que la radiación UV sola presenta una línea constante alrededor de -2.4 sin variabilidad entre sus niveles
 
-```{r}
-
-#| echo: false
-ggplot(supervivencia_philodina) +
-  aes(Treatments, Estimate, colour =`Wald Chi-square`)+
-  geom_point()
-```
-
 \
