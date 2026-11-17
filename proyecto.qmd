@@ -1,21 +1,122 @@
 ---
-title: "Efecto de la luz UV en la anhidrobiosis de los rotiferos del genero Adineta"
-author: "Laura B"
+title: "Revisión bibliografica del efecto de la luz UV en la anhidrobiosis de los rotiferos bdelloideos"
+author: "Laura Vanessa Bernal Lugo"
 format: html
+lang: ES
 editor: visual
 bibliography: references.bib
 ---
 
-## Introducción 
+```{r}
+#| include: false
+library(dplyr)
+```
 
-La radiación UV puede actuar directamente sobre la anhidrobiosis de los rotiferos bdelloideos del genero Adineta [@turvey1990]
+```{r}
+#| include: false
+library(readr)
+library(ggplot2)
+library(gt)
 
-Las ranas son activas al calor
+supervivencia_philodina <- read_csv2("supervivencia_philodina.csv")
 
-Metodologia
+```
 
-| Variable         | Unidad de medida | Tipo de variable |
-|------------------|------------------|------------------|
-| Especie de rana  |                  | Categorica       |
-| Temperatura      | Grados celsius   | Generica         |
-|                  |                  |                  |
+## Introducción
+
+Los rotíferos son microorganismos metazoos que poseen notables capacidades de adaptación frente a factores extremos y fluctuaciones de las variables fisicoquímicas en sus hábitats [@ricci1983a]. Entre ellos, los rotíferos bdelloideos destacan por su habilidad para entrar en estado de latencia o anhidrobiosis ante la pérdida de agua en ambientes acuáticos temporales. Sin embargo, factores ambientales adicionales como la radiación ultravioleta (UV) pueden actuar directamente sobre los organismos durante este proceso de anhidrobiosis, tal como se ha reportado en bdelloideos del género *Adineta* [@turvey1990], generando condiciones de estrés y daños en el ADN.
+
+El cambio climático y el aumento de las temperaturas han influenciado en los periodos de sequía y la exposición solar en cuerpos de agua someros, es importante comprender cómo interactúan estos factores estresantes. Por ello, el presente estudio tiene como objetivo evaluar y comparar la supervivencia de rotíferos bdelloideos sometidos de manera individual a estrés por desecación y radiación UV, tomando como referencia bibliográfica y experimental el trabajo realizado por [@Baeza2024] en el género *Philodina*.
+
+## Marco Teorico
+
+La radiación UV presenta longitudes de onda de un rango UVA (315-400nm) Y UVB(280-315 nm) si existe baja concentración de carbono orgánico disuelto en el agua serán más susceptibles a esta, lo cual provoca estrés oxidativo, daño tisular y rupturas en cadenas de ADN, reduciendo la viabilidad en los invertebrados acuáticos.
+
+Los rotíferos bdelloideos tienen la capacidad de entrar en estado de latencia en cualquier etapa de su ciclo de vida. Aunque la anhidrobiosis les permite sobrevivir a la pérdida de agua, periodos prolongados de desecación generan inestabilidad genómica y rupturas de doble cadena en el ADN. Al rehidratarse, estos organismos activan mecanismos enzimáticos de reparación de ADN y sistemas antioxidantes. Sin embargo, la exposición combinada a la desecación y a la radiación UV puede superar la capacidad de reparación celular e incrementar significativamente la mortalidad [@Baeza2024]
+
+| Variable     | Unidad de medida             | Tipo de variable |
+|--------------|------------------------------|------------------|
+| Pigmentación | HP, MP, LP                   | Categorica       |
+| Desecación   | Días                         | Categorica       |
+| UV           | Intensidad baja, media, alta | Categorica       |
+| Estimate     | Escala logit                 | Numerica         |
+| SE           | Escala logit                 | Numerica         |
+
+## Metodologia
+
+Para el desarrollo de este trabajo se realizó una revisión bibliográfica tomando como estudio base la investigación de [@Baeza2024], quienes evaluaron el efecto individual y sinérgico de la desecación y la radiación UVB sobre la supervivencia del rotífero bdelloideo *Philodina.*
+
+Los organismos fueron sometidos a tres condiciones de estrés, el primero tratamiento de desecación consistia en mantener a los rotiferos en camaras de humedad controlada (97% durante las primeras 48 horas, descendiendo posteriormente a un rango de 35-45%) bajo distintos tiempos de exposición: 0 días (control hidratado), 1,7 y 32 días)
+
+El segundo tratamiento fue de exposición durante 2 horas a radiación UVB/UVA(280-400nm) bajo tres niveles de intesidad: baja 2. (1.3 W/m²), media (3.7 W/m²) y alta (5.0 W/m²), comparados frente a un grupo control protegido de la luz.
+
+Los organismos previamente desecados durante los periodos establecidos fueron expuestos posteriormente a las distintas intensidades de radiación UVB antes de ser rehidratados en medio de cultivo. La supervivencia de los rotíferos se evaluó 48 horas después de la exposición observando la movilidad activa con base en los datos reportados en dicho estudio, se realizó la visualización de tablas y gráfica en R (mediante Quarto), analizando los valores estimados de supervivencia (Estimate), tratamientos y la prueba de Chi-cuadrado de Wald (Wald Chi-square).
+
+## Resultados
+
+```         
+```
+
+```{r}
+#| echo: false
+supervivencia_philodina |>
+  mutate(
+    Estimate = as.numeric(Estimate),
+    `Wald Chi-square` = as.numeric(`Wald Chi-square`)
+  ) |>
+  filter(!is.na(Treatments)) |>
+  group_by(Treatments) |>
+  summarise(
+    Estimate = mean(Estimate, na.rm = TRUE),
+    `Wald Chi-square` = mean(`Wald Chi-square`, na.rm = TRUE),
+    Individuos = n()
+  ) |>
+  gt() |> 
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  ) |>
+  tab_options(
+    table.border.top.color = "black",
+    table.border.bottom.color = "black",
+    column_labels.border.top.color = "black",
+    column_labels.border.bottom.color = "black",
+    table_body.hlines.style = "none"
+  )
+
+
+ 
+```
+
+Se presentaron valores estimados lo que demuestra que ambos factores reducen drásticamente la probabilidad de supervivencia de los rotíferos. Entre los dos estresores abióticos, la desecación mostró el mayor peso estadístico (mayor valor de Chi-cuadrado de Wald), siendo el factor más determinante sobre la mortalidad.
+
+la pigmentación registró un estimado positivo (Estimate = 0.16, Wald Chi-square = 19.94). Este valor demuestra que la presencia de pigmentos favorece la probabilidad de supervivencia frente a condiciones adversas.
+
+Los tratamientos combinados, la interacción (Desecación \* UV) mostró un efecto alto (Estimate = 0.42, Wald Chi-square = 102.45), confirmando que el impacto de la luz UV depende del estado de hidratación del rotífero. En cambio, las interacciones con la pigmentación (Pigmentación \* Desecación con -0.08 y Pigmentación \* UV con -0.21) tuvieron una magnitud estadística mucho menor.
+
+```{r}
+#| echo: false
+#| warning: false
+supervivencia_philodina |>
+  mutate(Estimate = as.numeric(Estimate)) |>
+  filter(!is.na(Treatments), !is.na(Estimate)) |>
+  ggplot() +
+  aes(x = Treatments, y = Estimate, fill = Treatments) +
+  geom_boxplot() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.position = "none")
+
+```
+
+En el diagrama de cajas, la desecación muestra la mediana más baja y la mayor dispersión de datos por debajo de cero, confirmando que es el tratamiento que más reduce la supervivencia según su duración. Por el contrario, el intercepto y la interacción Desecación \* UV mantienen medianas positivas, aunque esta última presenta un valor atípico extremo cercano a -11 que refleja la mortalidad severa al combinar sequía prolongada con alta radiación. Finalmente, los tratamientos relacionados con la pigmentación se mantienen cercanos a 0 con poca dispersión, mientras que la radiación UV sola presenta una línea constante alrededor de -2.4 sin variabilidad entre sus niveles
+
+```{r}
+
+#| echo: false
+ggplot(supervivencia_philodina) +
+  aes(Treatments, Estimate, colour =`Wald Chi-square`)+
+  geom_point()
+```
+
+\

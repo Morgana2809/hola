@@ -1,0 +1,39 @@
+Treatments;;;df ;Estimate;SE;Wald Chi-square;p-value
+intercept;;;1;3.75;0.14;750.54;< 0.001
+Pigmentation;HP;;1;0.87;0.12;52.61;< 0.001
+Pigmentation;MP;;1;-0.23;0.11;4.77;0.03
+Pigmentation;LP;;1;-0.16;0.1;2.44;0.12
+Desiccation;1;;1;-2.31;0.14;269.87;< 0.001
+Desiccation;7;;1;-3.58;0.14;685.17;< 0.001
+Desiccation;32;;1;-6.92;0.19;1343.06;< 0.001
+UV;low;;1;-2.42;0.14;292.11;< 0.001
+UV ;mid;;1;-2.47;0.14;305.87;< 0.001
+UV;high;;1;-2.39;0.14;283.86;< 0.001
+Pigmentation * Desiccation;HP;1;1;0.51;0.1;28.59;< 0.001
+Pigmentation * Desiccation;HP;7;1;0.25;0.09;7.13;0.01
+Pigmentation * Desiccation;HP;32;1;-1.6;0.2;62.33;< 0.001
+Pigmentation * Desiccation;MP;1;1;0.46;0.09;28.62;< 0.001
+Pigmentation * Desiccation;MP;7;1;0.88;0.09;-106.15;< 0.001
+Pigmentation * Desiccation;MP;32;1;-1.12;0.22;25.23;< 0.001
+Pigmentation * Desiccation;LP;1;1;-0.17;0.09;3.76;0.05
+Pigmentation * Desiccation;LP;7;1;0.26;0.09;8.99;0.003
+Pigmentation * Desiccation;LP;32;1;-0.21;0.16;1.7;0.19
+Pigmentation * UV;HP;low;1;-0.4;0.11;12.59;< 0.001
+Pigmentation * UV;MP;mid;1;-0.53;0.11;22.93;< 0.001
+Pigmentation * UV;MP;high;1;-0.74;0.11;44.62;< 0.001
+Pigmentation * UV;MP;low;1;-0.1;0.1;1.01;0.32
+Pigmentation * UV;MP;mid;1;-0.01;0.1;0;0.95
+Pigmentation * UV;LP;high;1;-0.28;0.1;7.64;0.01
+Pigmentation * UV;LP;low;1;0.13;0.1;1.82;0.18
+Pigmentation * UV;LP;mid;1;0.12;0.1;1.5;0.22
+Pigmentation * UV;LP;high;1;-0.04;0.1;0.17;0.68
+Desiccation * UV;1;low;1;1.76;0.14;152.14;< 0.001
+Desiccation * UV;1;mid;1;1.47;0.14;-106.74;< 0.001
+Desiccation * UV;1;high;1;0.91;0.14;41.79;< 0.001
+Desiccation * UV;7;low;1;1.98;0.14;204.37;< 0.001
+Desiccation * UV;7;mid;1;1.74;0.14;157.98;< 0.001
+Desiccation * UV;7;high;1;1.54;0.14;124.61;< 0.001
+Desiccation * UV;32;low;1;2.66;0.2;173.66;< 0.001
+Desiccation * UV;32;mid;1;2.68;0.2;174.25;< 0.001
+Desiccation * UV;32;high;1;-10.95;93.94;0.01;0.91
+;;;;;;;
